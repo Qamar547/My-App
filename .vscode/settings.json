@@ -1,0 +1,7 @@
+{
+    "workbench.settings.openDefaultSettings": false,
+    "scm.defaultViewMode": "list",
+    "search.defaultViewMode": "list",
+    "terminal.integrated.splitCwd": "inherited",
+    "workbench.editor.enablePreviewFromCodeNavigation": false
+}
