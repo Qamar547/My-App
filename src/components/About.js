@@ -1,50 +1,58 @@
 import react, { useState } from 'react'
 
-export default function About() {
-    const [myStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white',
-        border:'.5px solid black',
-        padding:'20px',
-        borderRadius:'10px'
-    })
+export default function About(props) {
+    // const [myStyle, setMyStyle] = useState({
+    //     color: 'black',
+    //     backgroundColor: 'white'
+    // })
 
-    const [btnText, setBtnText] = useState("Enable light mode")
-
-    const toggleStyle = ()=>{
-        if (myStyle.color === 'black') {
-            setMyStyle({
-                color: 'white',
-                backgroundColor: '#202320',
-                border:'.5px solid red',
-                padding:'20px',
-                borderRadius:'10px'
-            })
-            setBtnText("Enable light mode")
-        }
-        else{
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white',
-                border:'.5px solid black',
-                padding:'20px',
-                borderRadius:'10px'
-            })
-            setBtnText("Enable dark mode");
-        }
+    let myStyle = {
+        color: props.mode === 'dark'?'white':'#2E2E2E',
+        backgroundColor: props.mode === 'dark'?'#2E2E2E':'white'
     }
 
     return (
         <>
-            <h3>This is about page</h3>
+            <h3 style={{color: props.mode==='dark'?'white':'black'}}>This is about page</h3>
             <div className="container" style={myStyle}>
-                <div>
-                    <h2>This is Sample text</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus odit ducimus eius accusamus aspernatur deleniti vel asperiores ex obcaecati adipisci? Hic molestias necessitatibus harum voluptates perferendis aliquam reprehenderit culpa expedita!
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non cum ut magnam. Unde vel adipisci asperiores, sunt voluptates magni labore! Laborum, deleniti! Voluptas accusamus porro itaque beatae impedit iusto id!
-                    </p>
-                </div>
-                <button className="btn btn-primary" onClick={toggleStyle}>{btnText}</button>
+            <div className="accordion" id="accordionExample">
+  <div className="accordion-item">
+    <h2 className="accordion-header" id="headingOne">
+      <button style={myStyle} className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <strong>Accordion Item #1</strong>
+      </button>
+    </h2>
+    <div id="collapseOne" style={myStyle} className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div className="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div className="accordion-item">
+    <h2 className="accordion-header" id="headingTwo">
+      <button style={myStyle} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <strong>Accordion Item #2</strong> 
+      </button>
+    </h2>
+    <div style={myStyle} id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div className="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div className="accordion-item">
+    <h2 className="accordion-header" id="headingThree">
+      <button style={myStyle} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <strong>Accordion Item #3</strong>
+      </button>
+    </h2>
+    <div style={myStyle} id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div className="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
             </div>
         </>
     )
